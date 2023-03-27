@@ -1,0 +1,18 @@
+name: Seedwing Dependency Enforcer
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  enforcer:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check dependency tree against provided policies
+        uses: seedwing-io/enforcer-action@v1
+        with:
+          policy-dir: enforcer.dog
+          enforcer-config: .enforcer.yaml
+          source: pom.xml

@@ -1,3 +1,5 @@
 dependencies:
   policy: ./enforcer.dog
   requires: "valid"
+enforcer:
+  rationale: raw
