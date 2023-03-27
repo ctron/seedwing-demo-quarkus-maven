@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Check dependency tree against provided policies
-        uses: seedwing-io/enforcer-action@v1
+        uses: seedwing-io/enforcer-action@9786e4f079c6a386fd455d4288db6c2a42b79cb0
         with:
           policy-dir: enforcer.dog
           enforcer-config: .enforcer.yaml
