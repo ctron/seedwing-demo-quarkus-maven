@@ -16,4 +16,4 @@ jobs:
         with:
           policy-dir: enforcer.dog
           enforcer-config: .enforcer.yaml
-          source: pom.xml
+          source: ./
