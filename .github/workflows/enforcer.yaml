@@ -12,8 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Check dependency tree against provided policies
-        uses: seedwing-io/enforcer-action@3e7bc84d100a58af996ecb3d96583864701943cc
+        uses: seedwing-io/enforcer-action@000c63b4ab0ac04d01c993ed4bd5bbe040f13114
         with:
-          policy-dir: enforcer.dog
           enforcer-config: .enforcer.yaml
           source: ./
