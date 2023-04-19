@@ -1,0 +1,57 @@
+// what is the meaning of "valid"?
+
+pattern foo = {}
+
+pattern valid = dependency<not-affected && any-better>
+
+pattern not-affected = osv::scan-purl(openvex::from-osv(openvex::not-affected))
+
+// pattern any-better = redhat
+pattern any-better = {}
+
+pattern dependency<A> = {
+   purl: uri::purl(A)
+}
+
+pattern quarkus = {
+    namespace: "io.quarkus",
+}
+
+#[advice("Why not use a productized version?")]
+#[authoritative]
+pattern redhat = {
+    version: string::regexp<"\.redhat-\d+$">,
+}
+
+pattern named = {
+  name: string,
+}
+
+pattern versioned = {
+  version: {
+    major: integer,
+    minor: integer,
+    patch?: integer,
+  }
+}
+
+pattern named-and-versions = named && versioned
+
+pattern versioned = {
+  version: string || {
+    major: integer,
+    minor: integer,
+    patch?: integer,
+  }
+}
+
+pattern people = lang::or<*data::from<"people.json">>
+
+
+pattern alpha-sofware = {
+  version: {
+    major: $(self < 1),
+    minor: integer,
+    patch?: integer,
+  }
+}
